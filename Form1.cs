@@ -16,9 +16,12 @@ namespace Hanoi
         public static int honnan;
         public static int hova;
 
+        static List<Label> balos = new List<Label>();
+        static List<Label> kozepso = new List<Label>();
+        static List<Label> jobbos = new List<Label>();
+
         public Form1()
         {
-            
             InitializeComponent();
         }
 
@@ -74,11 +77,26 @@ namespace Hanoi
             {
                     korong[i] = new Label();
                     korong[i].Name = i+1.ToString();
-                    korong[i].Size = new Size(400, 400);
-                    korong[i].Location = new Point(110 + (400 * i), 125);
+                    korong[i].Size = new Size(50, 50);
+                    korong[i].Location = new Point(110 + (400 * i), 525);
                     korong[i].BackColor = Color.Black;
                     korong[i].Text = "";
                     this.Controls.Add(korong[i]);
+
+                switch (honnan)
+                {
+                    case 1:
+                        balos.Add(korong[i]);
+                        break;
+
+                    case 2:
+                        kozepso.Add(korong[i]);
+                        break;
+
+                    case 3:
+                        jobbos.Add(korong[i]);
+                        break;
+                }
             }
         }
 
