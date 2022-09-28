@@ -40,9 +40,32 @@ namespace Hanoi
             FormBeallitas();
             //tornyok generalasa
             //3 gomb generalasa
+            GombGeneralas();
             //korongszam label generalas
             //label szeleseg/szin beallito metodus
             //label pozicio metodus
+        }
+
+        private void GombGeneralas()
+        {
+            Button[] gombok = new Button[3];
+            for (int i = 0; i < 3; i++)
+            {
+                gombok[i] = new Button();
+                this.Controls.Add(gombok[i]);
+                string nev = "gomb"+i;
+                gombok[i].Name = nev;
+                gombok[i].Text = "Cica";
+                gombok[i].Location = new Point(110+400*i, 300);
+                gombok[i].Size = new Size(100, 50);
+                gombok[i].Click += new EventHandler(this.Klikkeles);
+            }
+
+        }
+
+        private void Klikkeles(object sender, EventArgs e)
+        {
+            
         }
 
         private void FormBeallitas()
