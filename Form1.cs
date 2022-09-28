@@ -38,8 +38,10 @@ namespace Hanoi
             //majd ellenorzunk
             //form beallitasa
             //tornyok generalasa
+            //3 gomb generalasa
             //korongszam label generalas
-            //
+            //label szeleseg/szin beallito metodus
+            //label pozicio metodus
         }
     }
 }
