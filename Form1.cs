@@ -97,6 +97,7 @@ namespace Hanoi
                         jobbos.Add(korong[i]);
                         break;
                 }
+
             }
         }
 
