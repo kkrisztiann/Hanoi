@@ -14,8 +14,22 @@ namespace Hanoi
     {
         public Form1()
         {
-    
+            toronyGeneralas();
             InitializeComponent();
+        }
+
+        private void toronyGeneralas()
+        {
+            PictureBox torony = new PictureBox();
+
+
+                torony.Name = "pictureBox";
+                torony.Size = new Size(16, 16);
+                torony.Location = new Point(100, 100);
+                torony.Image = Image.FromFile("torony.png");
+
+            
+            this.Controls.Add(torony);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
