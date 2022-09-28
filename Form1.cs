@@ -14,7 +14,23 @@ namespace Hanoi
     {
         public Form1()
         {
+    
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int korongszam = Convert.ToInt32(textBox1.Text);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            int honnan = Convert.ToInt32(textBox2.Text);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            int hova = Convert.ToInt32(textBox3.Text);
         }
     }
 }
