@@ -18,11 +18,6 @@ namespace Hanoi
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            int korongszam = Convert.ToInt32(textBox1.Text);
-        }
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             int honnan = Convert.ToInt32(textBox2.Text);
@@ -31,6 +26,20 @@ namespace Hanoi
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             int hova = Convert.ToInt32(textBox3.Text);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            int korongszam = Convert.ToInt32(numericUpDown1.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //majd ellenorzunk
+            //form beallitasa
+            //tornyok generalasa
+            //korongszam label generalas
+            //
         }
     }
 }
