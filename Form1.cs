@@ -30,7 +30,7 @@ namespace Hanoi
             {
                 nev[i]  = new PictureBox();
                 nev[i].Name = "pictureBox";
-                nev[i].Size = new Size(400, 400);
+                nev[i].Size = new Size(153, 226);
                 nev[i].Location = new Point(110+(400*i), 125);
                 nev[i].Image = Image.FromFile("torony.png");
                 this.Controls.Add(nev[i]);
