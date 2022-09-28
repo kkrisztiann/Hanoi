@@ -92,7 +92,7 @@ namespace Hanoi
                 string nev = "gomb"+i;
                 gombok[i].Name = nev;
                 gombok[i].Text = "Cica";
-                gombok[i].Location = new Point(110+400*i, 300);
+                gombok[i].Location = new Point(110+400*i, 400);
                 gombok[i].Size = new Size(100, 50);
                 gombok[i].Click += new EventHandler(this.Klikkeles);
             }
