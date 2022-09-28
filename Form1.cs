@@ -37,11 +37,17 @@ namespace Hanoi
         {
             //majd ellenorzunk
             //form beallitasa
+            FormBeallitas();
             //tornyok generalasa
             //3 gomb generalasa
             //korongszam label generalas
             //label szeleseg/szin beallito metodus
             //label pozicio metodus
+        }
+
+        private void FormBeallitas()
+        {
+            this.Size = new Size(1200, 500);
         }
     }
 }
