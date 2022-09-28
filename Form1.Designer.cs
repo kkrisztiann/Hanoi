@@ -72,7 +72,7 @@ namespace Hanoi
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 7;
-
+            this.textBox2.Text = "1";
             // 
             // textBox3
             // 
@@ -80,7 +80,7 @@ namespace Hanoi
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 8;
-
+            this.textBox3.Text = "3";
             // 
             // numericUpDown1
             // 
@@ -88,7 +88,11 @@ namespace Hanoi
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 9;
-
+            this.numericUpDown1.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // button1
             // 

@@ -92,7 +92,9 @@ namespace Hanoi
 
                         break;
                     case "10":
-
+                        honnanlista[i].BringToFront();
+                        honnanlista[i].Size = new Size(145,20);
+                        honnanlista[i].Location = new Point(113,320);
                         break;
 
                 }
