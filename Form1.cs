@@ -16,9 +16,9 @@ namespace Hanoi
         public static int honnan;
         public static int hova;
 
-        static List<Label> balos = new List<Label>();
-        static List<Label> kozepso = new List<Label>();
-        static List<Label> jobbos = new List<Label>();
+        static List<Label> honnanlista = new List<Label>();
+        static List<Label> jokerlista = new List<Label>();
+        static List<Label> hovalista = new List<Label>();
 
         public Form1()
         {
@@ -40,25 +40,13 @@ namespace Hanoi
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            honnan = Convert.ToInt32(textBox2.Text);
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            hova = Convert.ToInt32(textBox3.Text);
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            korongszam = Convert.ToInt32(numericUpDown1.Text);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //majd ellenorzunk
             //form beallitasa
+            korongszam = Convert.ToInt32(numericUpDown1.Text);
+            honnan = Convert.ToInt32(textBox2.Text);
+            hova = Convert.ToInt32(textBox3.Text);
             FormBeallitas();
             //tornyok generalasa
             ToronyGeneralas();
@@ -70,35 +58,63 @@ namespace Hanoi
             //label pozicio metodus
         }
 
+        private void SzinPoz()
+        {
+            for (int i = 0; i < korongszam; i++)
+            {
+                switch (honnanlista[i].Name)
+                {
+                    case "1":
+
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                    case "6":
+
+                        break;
+                    case "7":
+
+                        break;
+                    case "8":
+
+                        break;
+                    case "9":
+
+                        break;
+                    case "10":
+
+                        break;
+
+                }
+
+            }
+        }
+
         private void KorongBeall()
         {
             Label[] korong = new Label[korongszam];
             for (int i = 0; i < korongszam; i++)
             {
                     korong[i] = new Label();
-                    korong[i].Name = i+1.ToString();
-                    korong[i].Size = new Size(50, 50);
-                    korong[i].Location = new Point(110 + (400 * i), 525);
-                    korong[i].BackColor = Color.Black;
+                    korong[i].Name = (i+1).ToString();
+                    //korong[i].Size = new Size(50, 50);
+                    //korong[i].Location = new Point(110 + (400 * i), 525);
+                    korong[i].BackColor = Color.YellowGreen;
                     korong[i].Text = "";
+                    honnanlista.Add(korong[i]);
                     this.Controls.Add(korong[i]);
-
-                switch (honnan)
-                {
-                    case 1:
-                        balos.Add(korong[i]);
-                        break;
-
-                    case 2:
-                        kozepso.Add(korong[i]);
-                        break;
-
-                    case 3:
-                        jobbos.Add(korong[i]);
-                        break;
-                }
-
             }
+                    SzinPoz();
         }
 
         private void GombGeneralas()
