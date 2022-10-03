@@ -61,7 +61,6 @@ namespace Hanoi
 
             MenuEltunes();
         }
-
         private void MenuEltunes()
         {
             button1.Visible = false;
@@ -72,7 +71,6 @@ namespace Hanoi
             label2.Visible = false;
             label3.Visible = false;
         }
-
         private void SzinPoz()
         {
             for (int i = 0; i < korongszam; i++)
@@ -81,40 +79,42 @@ namespace Hanoi
                 {
                     case "1":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(255, 160, 122);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
                     case "2":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(255, 192, 203);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
                     case "3":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(255, 215, 0);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
                     case "4":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(255, 255, 0);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
                     case "5":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(216, 191, 216);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
                     case "6":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(0, 255, 127);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
                     case "7":
                         Csinositas(i);
+                        honnanlista[i].BackColor = Color.FromArgb(152, 251, 152);
+                        honnanlista[i].BorderStyle = BorderStyle.FixedSingle;
                         break;
-                    case "8":
-                        Csinositas(i);
-                        break;
-                    case "9":
-                        Csinositas(i);
-                        break;
-                    case "10":
-                        Csinositas(i);
-                        break;
-
                 }
-
             }
         }
-
         private void Csinositas(int i)
         {
             if (honnan == 1)
@@ -127,13 +127,13 @@ namespace Hanoi
             {
                 honnanlista[i].BringToFront();
                 honnanlista[i].Size = new Size(145 - (20 * i), 20);
-                honnanlista[i].Location = new Point(113 + (i * 10) + 400, 320 - (i * 20));
+                honnanlista[i].Location = new Point(113 + (i * 10) + (1*400), 320 - (i * 20));
             }
             if (honnan == 3)
             {
                 honnanlista[i].BringToFront();
                 honnanlista[i].Size = new Size(145 - (20 * i), 20);
-                honnanlista[i].Location = new Point(113 + (i * 10) + 800, 320 - (i * 20));
+                honnanlista[i].Location = new Point(113 + (i * 10) + (2 * 400), 320 - (i * 20));
             }
         }
 
@@ -174,20 +174,22 @@ namespace Hanoi
 
         private void Klikkeles1(object sender, EventArgs e)
         {
-            MessageBox.Show("Cica1");
+           
         }
         private void Klikkeles2(object sender, EventArgs e)
         {
-            MessageBox.Show("Cica2");
+            
         }
         private void Klikkeles3(object sender, EventArgs e)
         {
-            MessageBox.Show("Cica3");
+           
         }
 
         private void FormBeallitas()
         {
-            this.Size = new Size(1200, 500);
+            this.MinimumSize = new Size(1200, 500);
+            this.MaximumSize = new Size(1200, 500);
         }
     }
+   
 }
