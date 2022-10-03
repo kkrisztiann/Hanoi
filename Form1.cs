@@ -56,6 +56,20 @@ namespace Hanoi
             KorongBeall();
             //label szeleseg/szin beallito metodus
             //label pozicio metodus
+            //haugyanazahonnanmegahovaakkmessagebox
+
+            MenuEltunes();
+        }
+
+        private void MenuEltunes()
+        {
+            button1.Visible = false;
+            textBox3.Visible = false;
+            textBox2.Visible = false;
+            numericUpDown1.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
         }
 
         private void SzinPoz()
@@ -65,40 +79,60 @@ namespace Hanoi
                 switch (honnanlista[i].Name)
                 {
                     case "1":
-
+                        Csinositas(i);
                         break;
                     case "2":
-
+                        Csinositas(i);
                         break;
                     case "3":
-
+                        Csinositas(i);
                         break;
                     case "4":
-
+                        Csinositas(i);
                         break;
                     case "5":
-
+                        Csinositas(i);
                         break;
                     case "6":
-
+                        Csinositas(i);
                         break;
                     case "7":
-
+                        Csinositas(i);
                         break;
                     case "8":
-
+                        Csinositas(i);
                         break;
                     case "9":
-
+                        Csinositas(i);
                         break;
                     case "10":
-                        honnanlista[i].BringToFront();
-                        honnanlista[i].Size = new Size(145,20);
-                        honnanlista[i].Location = new Point(113,320);
+                        Csinositas(i);
                         break;
 
                 }
 
+            }
+        }
+
+        private void Csinositas(int i)
+        {
+            if (honnan == 1)
+            {
+                honnanlista[i].BringToFront();
+                honnanlista[i].Size = new Size(145 - (20 * i), 20);
+                honnanlista[i].Location = new Point(113 + (i * 10), 320 - (i * 20));
+            }
+            if (honnan == 2)
+            {
+                honnanlista[i].BringToFront();
+                honnanlista[i].Size = new Size(145 - (20 * i), 20);
+                honnanlista[i].Location = new Point(113 + (i * 10) + 400, 320 - (i * 20));
+            }
+            if (honnan == 3)
+            {
+                honnanlista[i].BringToFront();
+                honnanlista[i].Size = new Size(145 - (20 * i), 20);
+                honnanlista[i].Location = new Point(113 + (i * 10) + 800, 320 - (i * 20));
             }
         }
 
