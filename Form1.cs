@@ -178,10 +178,9 @@ namespace Hanoi
 
         private void Klikkeles1(object sender, EventArgs e)
         {
-            melyikrol = 1;
-            melyikre = 1;
             if (gombnyomasokszama == 0)
             {
+                melyikrol = 1;
                 gombok[0].Enabled = false;
                 gombnyomasokszama++;
                 gombok[1].Text = "Hova";
@@ -189,12 +188,14 @@ namespace Hanoi
             }
             else if (gombnyomasokszama == 1)
             {
+                melyikre = 1;
                 gombok[1].Enabled = true;
                 gombok[2].Enabled = true;
                 gombnyomasokszama = 0;
                 gombok[1].Text = "Honnan";
                 gombok[2].Text = "Honnan";
                 gombok[0].Text = "Honnan";
+                Mozgatas();
             }
             
             
@@ -202,10 +203,9 @@ namespace Hanoi
         
         private void Klikkeles2(object sender, EventArgs e)
         {
-            melyikrol = 2;
-            melyikre = 2;
             if (gombnyomasokszama==0)
             {
+                melyikrol = 2;
                 gombok[1].Enabled = false;
                 gombnyomasokszama++;
                 gombok[0].Text = "Hova";
@@ -213,22 +213,23 @@ namespace Hanoi
             }
             else if (gombnyomasokszama == 1)
             {
+                melyikre = 2;
                 gombok[0].Enabled = true;
                 gombok[2].Enabled = true;
                 gombnyomasokszama = 0;
                 gombok[1].Text = "Honnan";
                 gombok[2].Text = "Honnan";
                 gombok[0].Text = "Honnan";
+                Mozgatas();
             }
 
 
         }
         private void Klikkeles3(object sender, EventArgs e)
         {
-            melyikrol = 3;
-            melyikre = 3;
             if (gombnyomasokszama == 0)
             {
+                melyikrol = 3;
                 gombok[2].Enabled = false;
                 gombnyomasokszama++;
                 gombok[0].Text = "Hova";
@@ -236,16 +237,25 @@ namespace Hanoi
             }
             else if (gombnyomasokszama == 1)
             {
+                melyikre = 3;
                 gombok[1].Enabled = true;
                 gombok[0].Enabled = true;
                 gombnyomasokszama = 0;
                 gombok[1].Text = "Honnan";
                 gombok[2].Text = "Honnan";
                 gombok[0].Text = "Honnan";
+                Mozgatas();
             }
 
         }
 
+        private void Mozgatas()
+        {
+            if (true)
+            {
+
+            }
+        }
         private void FormBeallitas()
         {
             this.MinimumSize = new Size(1200, 500);
