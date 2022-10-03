@@ -12,9 +12,13 @@ namespace Hanoi
 {
     public partial class Form1 : Form
     {
-        public static int korongszam;
-        public static int honnan;
-        public static int hova;
+        static int korongszam;
+        static int honnan;
+        static int hova;
+        static int melyikrol;
+        static int melyikre;
+        static int gombnyomasokszama=0;
+
 
         static List<Label> honnanlista = new List<Label>();
         static List<Label> jokerlista = new List<Label>();
@@ -174,15 +178,72 @@ namespace Hanoi
 
         private void Klikkeles1(object sender, EventArgs e)
         {
-            MessageBox.Show("Cica1");
+            melyikrol = 1;
+            melyikre = 1;
+            if (gombnyomasokszama == 0)
+            {
+                gombok[0].Enabled = false;
+                gombnyomasokszama++;
+                gombok[1].Text = "Hova";
+                gombok[2].Text = "Hova";
+            }
+            else if (gombnyomasokszama == 1)
+            {
+                gombok[1].Enabled = true;
+                gombok[2].Enabled = true;
+                gombnyomasokszama = 0;
+                gombok[1].Text = "Honnan";
+                gombok[2].Text = "Honnan";
+                gombok[0].Text = "Honnan";
+            }
+            
+            
         }
+        
         private void Klikkeles2(object sender, EventArgs e)
         {
-            MessageBox.Show("Cica2");
+            melyikrol = 2;
+            melyikre = 2;
+            if (gombnyomasokszama==0)
+            {
+                gombok[1].Enabled = false;
+                gombnyomasokszama++;
+                gombok[0].Text = "Hova";
+                gombok[2].Text = "Hova";
+            }
+            else if (gombnyomasokszama == 1)
+            {
+                gombok[0].Enabled = true;
+                gombok[2].Enabled = true;
+                gombnyomasokszama = 0;
+                gombok[1].Text = "Honnan";
+                gombok[2].Text = "Honnan";
+                gombok[0].Text = "Honnan";
+            }
+
+
         }
         private void Klikkeles3(object sender, EventArgs e)
         {
-            MessageBox.Show("Cica3");
+            melyikrol = 3;
+            melyikre = 3;
+            if (gombnyomasokszama == 0)
+            {
+                gombok[2].Enabled = false;
+                gombnyomasokszama++;
+                gombok[0].Text = "Hova";
+                gombok[1].Text = "Hova";
+            }
+            else if (gombnyomasokszama == 1)
+            {
+                gombok[1].Enabled = true;
+                gombok[0].Enabled = true;
+                gombnyomasokszama = 0;
+                gombok[1].Text = "Honnan";
+                gombok[2].Text = "Honnan";
+                gombok[0].Text = "Honnan";
+            }
+
         }
 
         private void FormBeallitas()
