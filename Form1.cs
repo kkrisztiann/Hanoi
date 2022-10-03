@@ -251,9 +251,10 @@ namespace Hanoi
 
         private void Mozgatas()
         {
-            if (true)
+            if (melyikre!=honnan)
             {
-
+                //rakd oda
+                
             }
         }
         private void FormBeallitas()
