@@ -19,6 +19,7 @@ namespace Hanoi
         static List<Label> honnanlista = new List<Label>();
         static List<Label> jokerlista = new List<Label>();
         static List<Label> hovalista = new List<Label>();
+        static Button[] gombok = new Button[3];
 
         public Form1()
         {
@@ -155,24 +156,33 @@ namespace Hanoi
 
         private void GombGeneralas()
         {
-            Button[] gombok = new Button[3];
             for (int i = 0; i < 3; i++)
             {
                 gombok[i] = new Button();
                 this.Controls.Add(gombok[i]);
                 string nev = "gomb"+i;
                 gombok[i].Name = nev;
-                gombok[i].Text = "Cica";
+                gombok[i].Text = "Honnan";
                 gombok[i].Location = new Point(135+400*i, 380);
                 gombok[i].Size = new Size(100, 50);
-                gombok[i].Click += new EventHandler(this.Klikkeles);
             }
+            gombok[0].Click += new EventHandler(this.Klikkeles1);
+            gombok[1].Click += new EventHandler(this.Klikkeles2);
+            gombok[2].Click += new EventHandler(this.Klikkeles3);
 
         }
 
-        private void Klikkeles(object sender, EventArgs e)
+        private void Klikkeles1(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("Cica1");
+        }
+        private void Klikkeles2(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cica2");
+        }
+        private void Klikkeles3(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cica3");
         }
 
         private void FormBeallitas()
