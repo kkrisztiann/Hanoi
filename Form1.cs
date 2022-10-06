@@ -15,6 +15,7 @@ namespace Hanoi
         static int korongszam;
         static int honnan;
         static int hova;
+        static int joker;
         static int melyikrol;
         static int melyikre;
         static int gombnyomasokszama=0;
@@ -52,6 +53,7 @@ namespace Hanoi
             korongszam = Convert.ToInt32(numericUpDown1.Text);
             honnan = Convert.ToInt32(textBox2.Text);
             hova = Convert.ToInt32(textBox3.Text);
+            joker = 6 - honnan - hova;
             FormBeallitas();
             //tornyok generalasa
             ToronyGeneralas();
@@ -251,12 +253,103 @@ namespace Hanoi
 
         private void Mozgatas()
         {
-            if (melyikre!=honnan)
+            if (melyikrol==honnan)
             {
-                //rakd oda
-                
+                if (melyikre==hova)
+                {
+                    if (RaLehetERakni(honnanlista, hovalista))
+                    {
+                        GyuruAtRakas(honnanlista, hovalista);
+                    }
+                }
+                if (melyikre==joker)
+                {
+                    if (RaLehetERakni(honnanlista, jokerlista))
+                    {
+                        GyuruAtRakas(honnanlista, jokerlista);
+                    }
+                }
+            }
+            if (melyikrol == hova)
+            {
+                if (melyikre == honnan)
+                {
+                    if (RaLehetERakni(hovalista, honnanlista))
+                    {
+                        GyuruAtRakas(hovalista, honnanlista);
+                    }
+                }
+                if (melyikre == joker)
+                {
+                    if (RaLehetERakni(hovalista, jokerlista))
+                    {
+                        GyuruAtRakas(hovalista, jokerlista);
+                    }
+                }
+            }
+            if (melyikrol == joker)
+            {
+                if (melyikre == honnan)
+                {
+                    if (RaLehetERakni(jokerlista, honnanlista))
+                    {
+                        GyuruAtRakas(jokerlista, honnanlista);
+                    }
+                }
+                if (melyikre == hova)
+                {
+                    if (RaLehetERakni(jokerlista, hovalista))
+                    {
+                        GyuruAtRakas(jokerlista, hovalista);
+                    }
+                }
+            }
+            //rakd oda
+
+        }
+
+        private void GyuruAtRakas(List<Label> honnanka, List<Label> hovacska)
+        {
+            Label seged = new Label();
+            hovacska.Add(honnanka[honnanka.Count - 1]);
+            honnanka.RemoveAt(honnanka.Count - 1);
+            PozicioAtrakas(hovacska);
+
+        }
+
+        private void PozicioAtrakas(List<Label> labellista)
+        {
+            labellista[labellista.Count-1].Location = new Point(113 + ((Convert.ToInt32(labellista[labellista.Count-1].Name)-1) * 10)+400*(melyikre-1), 320 - ((labellista.Count-1) * 20));
+            //labellista[labellista.Count-1].BorderStyle= BorderStyle.FixedSingle;
+            //labellista[labellista.Count-1].BackColor= Color.FromArgb(255, 160, 122);
+            //labellista[labellista.Count-1].BringToFront();
+            if (hovalista.Count==korongszam)
+            {
+                MessageBox.Show("Nyertél ügyi bügyi");
+                Close();
             }
         }
+
+        private bool RaLehetERakni(List<Label> honnanka, List<Label> hovacska)
+        {
+            if (hovacska.Count!=0)
+            {
+                if (Convert.ToInt32(honnanka[honnanka.Count - 1].Name) > Convert.ToInt32(hovacska[hovacska.Count - 1].Name))
+                {
+                    //MessageBox.Show("Megvizsgáltam és kisebb a honnanka utso eleme mint a hovacskae");
+                    //MessageBox.Show(honnanka[honnanka.Count - 1].Name+" << honnanka");
+                    //MessageBox.Show(hovacska[hovacska.Count - 1].Name + " << hovacska");
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
+
         private void FormBeallitas()
         {
             this.MinimumSize = new Size(1200, 500);
