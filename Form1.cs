@@ -18,6 +18,8 @@ namespace Hanoi
         static int joker;
         static int melyikrol;
         static int melyikre;
+        static double megoldaslegkevesebblepesbol;
+        static int lepesekszama=0;
         static int gombnyomasokszama=0;
 
 
@@ -48,25 +50,25 @@ namespace Hanoi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //majd ellenorzunk
-            //form beallitasa
+
             korongszam = Convert.ToInt32(numericUpDown1.Text);
             honnan = Convert.ToInt32(textBox2.Text);
             hova = Convert.ToInt32(textBox3.Text);
             joker = 6 - honnan - hova;
+            megoldaslegkevesebblepesbol = Math.Pow(2, Convert.ToDouble(korongszam)) - 1;
             FormBeallitas();
-            //tornyok generalasa
+
             ToronyGeneralas();
-            //3 gomb generalasa
+
             GombGeneralas();
-            //korongszam label generalas
+
+            PontszamoloGeneralas();
+
             KorongBeall();
-            //label szeleseg/szin beallito metodus
-            //label pozicio metodus
-            //haugyanazahonnanmegahovaakkmessagebox
 
             MenuEltunes();
         }
+
         private void MenuEltunes()
         {
             button1.Visible = false;
@@ -177,7 +179,14 @@ namespace Hanoi
             gombok[2].Click += new EventHandler(this.Klikkeles3);
 
         }
-
+        private void PontszamoloGeneralas()
+        {
+            Label pontszam = new Label();
+            pontszam.Text = "Lépések száma: " + lepesekszama;
+            pontszam.Location = new Point(500, 500);
+            this.Controls.Add(pontszam);
+            pontszam.BringToFront();
+        }
         private void Klikkeles1(object sender, EventArgs e)
         {
             if (gombnyomasokszama == 0)
@@ -320,9 +329,7 @@ namespace Hanoi
         private void PozicioAtrakas(List<Label> labellista)
         {
             labellista[labellista.Count-1].Location = new Point(113 + ((Convert.ToInt32(labellista[labellista.Count-1].Name)-1) * 10)+400*(melyikre-1), 320 - ((labellista.Count-1) * 20));
-            //labellista[labellista.Count-1].BorderStyle= BorderStyle.FixedSingle;
-            //labellista[labellista.Count-1].BackColor= Color.FromArgb(255, 160, 122);
-            //labellista[labellista.Count-1].BringToFront();
+            lepesekszama++;
             if (hovalista.Count==korongszam)
             {
                 MessageBox.Show("Nyertél ügyi bügyi");
@@ -336,9 +343,6 @@ namespace Hanoi
             {
                 if (Convert.ToInt32(honnanka[honnanka.Count - 1].Name) > Convert.ToInt32(hovacska[hovacska.Count - 1].Name))
                 {
-                    //MessageBox.Show("Megvizsgáltam és kisebb a honnanka utso eleme mint a hovacskae");
-                    //MessageBox.Show(honnanka[honnanka.Count - 1].Name+" << honnanka");
-                    //MessageBox.Show(hovacska[hovacska.Count - 1].Name + " << hovacska");
                     return true;
                 }
                 return false;
