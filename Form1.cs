@@ -183,9 +183,9 @@ namespace Hanoi
         {
             Label pontszam = new Label();
             pontszam.Text = "Lépések száma: " + lepesekszama;
-            pontszam.Location = new Point(500, 500);
-            this.Controls.Add(pontszam);
+            pontszam.Location = new Point(550, 25);
             pontszam.BringToFront();
+            this.Controls.Add(pontszam);
         }
         private void Klikkeles1(object sender, EventArgs e)
         {
