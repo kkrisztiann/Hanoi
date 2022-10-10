@@ -21,6 +21,8 @@ namespace Hanoi
         static double megoldaslegkevesebblepesbol;
         static int lepesekszama=0;
         static int gombnyomasokszama=0;
+        static Label pontszam = new Label();
+        static Label megoldaslegkevesebblepesbolLbl = new Label();
 
 
         static List<Label> honnanlista = new List<Label>();
@@ -181,7 +183,12 @@ namespace Hanoi
         }
         private void PontszamoloGeneralas()
         {
-            Label pontszam = new Label();
+            //MessageBox.Show(megoldaslegkevesebblepesbol.ToString());
+            megoldaslegkevesebblepesbolLbl.Text ="Minimum lépések száma: " +megoldaslegkevesebblepesbol.ToString();
+            megoldaslegkevesebblepesbolLbl.Location = new Point(530, 50);
+            megoldaslegkevesebblepesbolLbl.Size = new Size(200, 200);
+            megoldaslegkevesebblepesbolLbl.BringToFront();
+            this.Controls.Add(megoldaslegkevesebblepesbolLbl);
             pontszam.Text = "Lépések száma: " + lepesekszama;
             pontszam.Location = new Point(550, 25);
             pontszam.BringToFront();
@@ -330,6 +337,7 @@ namespace Hanoi
         {
             labellista[labellista.Count-1].Location = new Point(113 + ((Convert.ToInt32(labellista[labellista.Count-1].Name)-1) * 10)+400*(melyikre-1), 320 - ((labellista.Count-1) * 20));
             lepesekszama++;
+            pontszam.Text = "Lépések száma: " + lepesekszama;
             if (hovalista.Count==korongszam)
             {
                 MessageBox.Show("Nyertél ügyi bügyi");
