@@ -367,6 +367,11 @@ namespace Hanoi
             this.MinimumSize = new Size(1200, 500);
             this.MaximumSize = new Size(1200, 500);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
    
 }
